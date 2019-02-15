@@ -35,5 +35,8 @@
     "mocha": "^5.2.0",
     "mocha-eslint": "^5.0.0",
     "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0"
   }
 }
