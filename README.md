@@ -1,4 +1,4 @@
-# Login Server
+# Login Client
 [![Build Status](https://travis-ci.com/gbv/login-client.svg?branch=master)](https://travis-ci.com/gbv/login-client)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
