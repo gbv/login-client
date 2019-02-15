@@ -55,7 +55,7 @@ client.addEventListener("error", error => {
 // Connect
 client.connect() // Not yet implemented
 // Access properties
-client.isLoggedIn
+client.loggedIn
 client.user
 client.providers
 client.connected
