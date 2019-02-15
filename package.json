@@ -37,6 +37,8 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "jsonwebtoken": "^8.4.0",
+    "node-fetch": "^2.3.0",
+    "ws": "^6.1.3"
   }
 }
