@@ -1,0 +1,36 @@
+{
+  "name": "gbv-login-client",
+  "version": "0.1.0",
+  "description": "A client for gbv/login-server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint-staged",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbv/login-client.git"
+  },
+  "author": "Stefan Peters <stefan.peters@gbv.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbv/login-client/issues"
+  },
+  "homepage": "https://github.com/gbv/login-client",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "lint-staged": "^8.1.4",
+    "pre-commit": "^1.2.2"
+  }
+}
