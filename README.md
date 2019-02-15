@@ -23,8 +23,6 @@ npm install
 TODO
 
 ## Test
-Not yet implemented.
-
 ```bash
 npm test
 ```
