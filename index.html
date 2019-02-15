@@ -1,0 +1,25 @@
+<script src="build/gbv-login-client.js"></script>
+<script>
+let client = new LoginClient("localhost:3004", false)
+
+client.addEventListener("connect", event => {
+  console.log("connect fired")
+})
+client.addEventListener("disconnect", event => {
+  console.log("disconnect fired")
+})
+client.addEventListener("login", event => {
+  console.log("login fired", event.user)
+})
+client.addEventListener("logout", event => {
+  console.log("logout fired")
+})
+client.addEventListener("update", event => {
+  console.log("update fired", event.user)
+})
+client.addEventListener("error", error => {
+  console.log("error fired", error)
+})
+
+client.connect()
+</script>

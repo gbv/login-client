@@ -3,7 +3,8 @@ const lint = require("mocha-eslint")
 // ESLint as part of the tests
 let paths = [
   "**/*.js",
-  "!node_modules/**/*.js"
+  "!node_modules/**/*.js",
+  "!build/**/*.js"
 ]
 let options = {
   contextName: "ESLint"

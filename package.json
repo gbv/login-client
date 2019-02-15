@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit --timeout 10000 --slow 2000",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "build": "browserify index.js -s LoginClient | uglifyjs > build/login-client.js"
   },
   "lint-staged": {
     "**/*.js": [
@@ -29,14 +30,17 @@
   },
   "homepage": "https://github.com/gbv/login-client",
   "devDependencies": {
+    "browserify": "^16.2.3",
     "chai": "^4.2.0",
     "eslint": "^5.13.0",
     "lint-staged": "^8.1.4",
     "mocha": "^5.2.0",
     "mocha-eslint": "^5.0.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "uglify-es": "^3.3.9"
   },
   "dependencies": {
+    "isomorphic-ws": "^4.0.1",
     "jsonwebtoken": "^8.4.0",
     "node-fetch": "^2.3.0",
     "ws": "^6.1.3"
