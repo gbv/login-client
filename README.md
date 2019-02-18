@@ -22,7 +22,8 @@ npm install
 ## Usage
 ```javascript
 const LoginClient = require("gbv-login-client")
-// Second parameter is a boolean whether the server supports SSL (`true` by default)
+// Second parameter is an options object with properties:
+// `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 10000), `retryMult` (default: 1.2)
 let client = new LoginClient("login.example.com")
 // Add event listeners
 client.addEventListener("connect", event => {
