@@ -40,6 +40,7 @@ const LoginClient = require("gbv-login-client")
 // `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 10000), `retryMult` (default: 1.2)
 let client = new LoginClient("login.example.com")
 // Add event listeners
+// Note: `event` always contains the property `event.type` which is the name of the event.
 client.addEventListener("connect", event => {
   // Fires when the client successfully connected.
   // `event` is empty.
@@ -72,9 +73,9 @@ client.addEventListener("token", event => {
   // Fires when the token was updated.
   // `event.token` contains the updated token.
 })
-client.addEventListener("error", error => {
+client.addEventListener("error", event => {
   // Fires when an error occurred.
-  // `error` contains one of the following errors:
+  // `event.error` contains one of the following errors:
   // - NoInternetConnectionError
   // - ThirdPartyCookiesBlockedError
   // - ServerConnectionError
