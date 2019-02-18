@@ -68,7 +68,7 @@ client.addEventListener("error", error => {
   // - ServerConnectionError
 })
 // Connect
-client.connect() // Not yet implemented
+client.connect()
 // Access properties
 client.loggedIn
 client.user

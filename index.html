@@ -1,6 +1,7 @@
-<script src="build/gbv-login-client.js"></script>
+Please look at the console.
+<script src="build/login-client.min.js"></script>
 <script>
-let client = new LoginClient("localhost:3004", false)
+let client = new LoginClient("localhost:3004", { ssl: false })
 
 client.addEventListener("connect", event => {
   console.log("connect fired")
