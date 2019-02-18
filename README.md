@@ -90,6 +90,16 @@ client.addEventListener("_received", event => {
   // Fires when a message was received through the WebSocket.
   // `event.message` contains the message that was received.
 })
+// Alternatively, you can set an event listener for `null` which receives all events:
+client.addEventListener(null, event => {
+  switch (event.name) {
+    case "connect":
+      // ...
+      break
+    default:
+      // ...
+  }
+})
 // Connect
 client.connect()
 // Access properties
