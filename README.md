@@ -19,6 +19,20 @@ cd login-client
 npm install
 ```
 
+## Build
+[browserify](https://github.com/browserify/browserify) is used to create builds for the browser. These builds are available in the `build/` folder and will be created on each commit. The files can be included manually or using a CDN like [jsDelivr](https://www.jsdelivr.com):
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/gbv/login-client/build/login-client.js"></script>
+```
+
+Or minified:
+```html
+<script src="https://cdn.jsdelivr.net/gh/gbv/login-client/build/login-client.min.js"></script>
+```
+
+After that, the class `LoginClient` can be used like shown below.
+
 ## Usage
 ```javascript
 const LoginClient = require("gbv-login-client")
