@@ -21,6 +21,23 @@ client.addEventListener("update", event => {
 client.addEventListener("error", error => {
   console.log("error fired", error)
 })
+client.addEventListener("providers", event => {
+  console.log("providers fired", event.providers)
+})
+client.addEventListener("publicKey", event => {
+  console.log("publicKey fired", event.publicKey)
+})
+client.addEventListener("token", event => {
+  console.log("token fired", event.token)
+})
+// (normally not used in production)
+client.addEventListener("_sent", event => {
+  console.log("_sent fired", event.message)
+})
+// (normally not used in production)
+client.addEventListener("_received", event => {
+  console.log("_received fired", event.message)
+})
 
 client.connect()
 </script>

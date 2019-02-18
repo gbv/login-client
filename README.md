@@ -60,12 +60,34 @@ client.addEventListener("update", event => {
   // Fires when the user was updated.
   // `event.user` contains the updated user object.
 })
+client.addEventListener("providers", event => {
+  // Fires when the providers were updated.
+  // `event.providers` contains the updated providers list.
+})
+client.addEventListener("publicKey", event => {
+  // Fires when the server's public key was updated.
+  // `event.publicKey` contains the updated public key.
+})
+client.addEventListener("token", event => {
+  // Fires when the token was updated.
+  // `event.token` contains the updated token.
+})
 client.addEventListener("error", error => {
   // Fires when an error occurred.
   // `error` contains one of the following errors:
   // - NoInternetConnectionError
   // - ThirdPartyCookiesBlockedError
   // - ServerConnectionError
+})
+// (normally not used in production)
+client.addEventListener("_sent", event => {
+  // Fires when a message was sent through the WebSocket.
+  // `event.message` contains the message that was sent.
+})
+// (normally not used in production)
+client.addEventListener("_received", event => {
+  // Fires when a message was received through the WebSocket.
+  // `event.message` contains the message that was received.
 })
 // Connect
 client.connect()

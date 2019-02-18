@@ -5,6 +5,11 @@ const events = {
   logout: "logout",
   update: "update",
   error: "error",
+  providers: "providers",
+  token: "token",
+  publicKey: "publicKey",
+  _sent: "_sent",
+  _received: "_received"
 }
 const isEvent = (eventName) => {
   return Object.values(events).includes(eventName)
