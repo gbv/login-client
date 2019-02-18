@@ -6,19 +6,27 @@
   "scripts": {
     "test": "mocha --exit --timeout 10000 --slow 2000",
     "lint-staged": "lint-staged",
-    "build": "browserify index.js -s LoginClient | uglifyjs > build/login-client.js"
+    "build": "browserify index.js -s LoginClient -o build/login-client.js && uglifyjs build/login-client.js > build/login-client.min.js",
+    "build:add": "git add build/*"
   },
   "lint-staged": {
-    "**/*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "linters": {
+      "**/*.js": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
+    },
+    "ignore": ["build/*"]
   },
-  "pre-commit": "lint-staged",
+  "pre-commit": [
+    "lint-staged",
+    "build",
+    "build:add"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gbv/login-client.git"
