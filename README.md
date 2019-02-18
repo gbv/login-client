@@ -41,59 +41,59 @@ const LoginClient = require("gbv-login-client")
 let client = new LoginClient("login.example.com")
 // Add event listeners
 // Note: `event` always contains the property `event.type` which is the name of the event.
-client.addEventListener("connect", event => {
+client.addEventListener(LoginClient.events.connect, event => {
   // Fires when the client successfully connected.
   // `event` is empty.
 })
-client.addEventListener("disconnect", event => {
+client.addEventListener(LoginClient.events.disconnect, event => {
   // Fires when the client disconnected.
   // `event` is empty.
 })
-client.addEventListener("login", event => {
+client.addEventListener(LoginClient.events.login, event => {
   // Fires when the user has logged in.
   // `event.user` contains the user object.
 })
-client.addEventListener("logout", event => {
+client.addEventListener(LoginClient.events.logout, event => {
   // Fires when the user has logged out.
   // `event` is empty.
 })
-client.addEventListener("update", event => {
+client.addEventListener(LoginClient.events.update, event => {
   // Fires when the user was updated.
   // `event.user` contains the updated user object.
 })
-client.addEventListener("providers", event => {
+client.addEventListener(LoginClient.events.providers, event => {
   // Fires when the providers were updated.
   // `event.providers` contains the updated providers list.
 })
-client.addEventListener("publicKey", event => {
+client.addEventListener(LoginClient.events.publicKey, event => {
   // Fires when the server's public key was updated.
   // `event.publicKey` contains the updated public key.
 })
-client.addEventListener("token", event => {
+client.addEventListener(LoginClient.events.token, event => {
   // Fires when the token was updated.
   // `event.token` contains the updated token.
 })
-client.addEventListener("error", event => {
+client.addEventListener(LoginClient.events.error, event => {
   // Fires when an error occurred.
   // `event.error` contains one of the following errors:
-  // - NoInternetConnectionError
-  // - ThirdPartyCookiesBlockedError
-  // - ServerConnectionError
+  // - LoginClient.errors.NoInternetConnectionError
+  // - LoginClient.errors.ThirdPartyCookiesBlockedError
+  // - LoginClient.errors.ServerConnectionError
 })
 // (normally not used in production)
-client.addEventListener("_sent", event => {
+client.addEventListener(LoginClient.events._sent, event => {
   // Fires when a message was sent through the WebSocket.
   // `event.message` contains the message that was sent.
 })
 // (normally not used in production)
-client.addEventListener("_received", event => {
+client.addEventListener(LoginClient.events._received, event => {
   // Fires when a message was received through the WebSocket.
   // `event.message` contains the message that was received.
 })
 // Alternatively, you can set an event listener for `null` which receives all events:
 client.addEventListener(null, event => {
   switch (event.name) {
-    case "connect":
+    case LoginClient.events.connect:
       // ...
       break
     default:

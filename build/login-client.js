@@ -19,6 +19,9 @@ const jwtDecode = require("jwt-decode")
  *
  */
 class LoginClient {
+  // Static properties for events and errors
+  static get events() { return events }
+  static get errors() { return errors }
 
   /**
    * Creates a LoginClient instance.
