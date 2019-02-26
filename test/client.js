@@ -23,7 +23,7 @@ describe("Connect", () => {
     expect(client.user).to.be.null
     expect(client.connected).to.be.false
     expect(client.token).to.be.null
-    expect(client.publicKey).to.be.null
+    expect(client.about).to.be.null
     done()
   })
 
