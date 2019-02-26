@@ -65,9 +65,9 @@ client.addEventListener(LoginClient.events.providers, event => {
   // Fires when the providers were updated.
   // `event.providers` contains the updated providers list.
 })
-client.addEventListener(LoginClient.events.publicKey, event => {
-  // Fires when the server's public key was updated.
-  // `event.publicKey` contains the updated public key.
+client.addEventListener(LoginClient.events.about, event => {
+  // Fires when the server's about information was updated.
+  // `event` contains the information (e.g. `event.publicKey`).
 })
 client.addEventListener(LoginClient.events.token, event => {
   // Fires when the token was updated.
@@ -108,7 +108,7 @@ client.user
 client.providers
 client.connected
 client.token
-client.publicKey
+client.about
 ```
 
 ## Test
