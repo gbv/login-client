@@ -7,7 +7,7 @@ const events = {
   error: "error",
   providers: "providers",
   token: "token",
-  publicKey: "publicKey",
+  about: "about",
   _sent: "_sent",
   _received: "_received"
 }

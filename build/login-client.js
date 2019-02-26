@@ -44,7 +44,7 @@ class LoginClient {
     this._providers = null
     this._connected = false
     this._token = null
-    this._publicKey = null
+    this._about = null
     this._listeners = {}
     this._ws = null
     this._currentRetryMs = retryMs
@@ -84,8 +84,8 @@ class LoginClient {
   get token() {
     return this._token
   }
-  get publicKey() {
-    return this._publicKey
+  get about() {
+    return this._about
   }
 
   /**
@@ -122,19 +122,6 @@ class LoginClient {
   _handleOpen() {
     this._currentRetryMs = this._retryMs
     this._authenticated = false
-
-    // Load providers if necessary
-    if (!this._providers) {
-      this._send({
-        type: "providers"
-      })
-    }
-    // Load publicKey if necessary
-    if (!this._publicKey) {
-      this._send({
-        type: "publicKey"
-      })
-    }
 
     // Load login site first to make sure there is a cookie if third-party cookies are enabled
     fetch(this._baseUrl + "login", { credentials: "include" }).then(() => fetch(this._baseUrl + "token", {
@@ -187,10 +174,10 @@ class LoginClient {
             this._emit(events.providers, { providers: this._providers })
           }
           break
-        case "publicKey":
-          if (!_.isEqual(this._publicKey, message.data.publicKey)) {
-            this._publicKey = message.data.publicKey
-            this._emit(events.publicKey, { publicKey: this._publicKey })
+        case "about":
+          if (!_.isEqual(this._about, message.data)) {
+            this._about = message.data
+            this._emit(events.about, this._about)
           }
           break
         case "token":
@@ -2913,7 +2900,7 @@ const events = {
   error: "error",
   providers: "providers",
   token: "token",
-  publicKey: "publicKey",
+  about: "about",
   _sent: "_sent",
   _received: "_received"
 }
