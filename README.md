@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/gbv/login-client.svg?branch=master)](https://travis-ci.com/gbv/login-client)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
-This repository offers a client to be used with [login-server](https://github.com/gbv/login-server).
+This repository offers a JavaScript client to be used with [login-server](https://github.com/gbv/login-server).
 
 ## Table of Contents
 - [Install](#install)
@@ -20,6 +20,10 @@ npm install
 ```
 
 ## Build
+```bash
+npm run build
+```
+
 [browserify](https://github.com/browserify/browserify) is used to create builds for the browser. These builds are available in the `build/` folder and will be created on each commit. The files can be included manually or using a CDN like [jsDelivr](https://www.jsdelivr.com):
 
 ```html
@@ -35,6 +39,7 @@ After that, the class `LoginClient` can be used like shown below.
 
 ## Usage
 ```javascript
+// Not needed when the browser build was included.
 const LoginClient = require("gbv-login-client")
 // Second parameter is an options object with properties:
 // `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 10000), `retryMult` (default: 1.2)
