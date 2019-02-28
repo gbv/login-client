@@ -2,7 +2,9 @@
 [![Build Status](https://travis-ci.com/gbv/login-client.svg?branch=master)](https://travis-ci.com/gbv/login-client)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
-This repository offers a JavaScript client to be used with [login-server](https://github.com/gbv/login-server).
+This repository offers a JavaScript client to be used with [login-server].
+
+[login-server]: https://github.com/gbv/login-server
 
 ## Table of Contents
 - [Install](#install)
@@ -115,6 +117,8 @@ client.connected
 client.token
 client.about
 ```
+
+The [login-server] contains a more comprehensive example at its `/api` endpoint. See [its source code](https://github.com/gbv/login-server/blob/master/views/api.ejs) for details.
 
 ## Test
 ```bash
