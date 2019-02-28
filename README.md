@@ -97,7 +97,7 @@ client.addEventListener(LoginClient.events._received, event => {
 })
 // Alternatively, you can set an event listener for `null` which receives all events:
 client.addEventListener(null, event => {
-  switch (event.name) {
+  switch (event.type) {
     case LoginClient.events.connect:
       // ...
       break
