@@ -116,6 +116,8 @@ client.providers
 client.connected
 client.token
 client.about
+// Additional methods
+client.setName("New Name")
 ```
 
 The [login-server] contains a more comprehensive example at its `/api` endpoint. See [its source code](https://github.com/gbv/login-server/blob/master/views/api.ejs) for details.
