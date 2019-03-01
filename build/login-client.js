@@ -203,7 +203,7 @@ class LoginClient {
         case "token":
           if (!_.isEqual(this._token, message.data.token)) {
             this._token = message.data.token
-            this._emit(events.token, { token: this._token })
+            this._emit(events.token, { token: this._token, expiresIn: message.data.expiresIn })
           }
           break
         case "updated":

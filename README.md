@@ -83,7 +83,8 @@ client.addEventListener(LoginClient.events.about, event => {
 })
 client.addEventListener(LoginClient.events.token, event => {
   // Fires when the token was updated.
-  // `event.token` contains the updated token.
+  // `event.token` contains the updated token,
+  // `event.expiresIn` contains the number of seconds the token will expire in.
 })
 client.addEventListener(LoginClient.events.error, event => {
   // Fires when an error occurred.
