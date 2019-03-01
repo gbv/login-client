@@ -1,6 +1,6 @@
 # Login Client
 [![Build Status](https://travis-ci.com/gbv/login-client.svg?branch=master)](https://travis-ci.com/gbv/login-client)
-[![GitHub package version](https://img.shields.io/github/package-json/v/gbv/jskos-tools.svg?label=version)](https://github.com/gbv/login-client)
+[![GitHub package version](https://img.shields.io/github/package-json/v/gbv/login-client.svg?label=version)](https://github.com/gbv/login-client)
 [![NPM package name](https://img.shields.io/badge/npm-gbv--login--client-blue.svg)](https://www.npmjs.com/package/gbv-login-client)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
