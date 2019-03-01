@@ -1,5 +1,7 @@
 # Login Client
 [![Build Status](https://travis-ci.com/gbv/login-client.svg?branch=master)](https://travis-ci.com/gbv/login-client)
+[![GitHub package version](https://img.shields.io/github/package-json/v/gbv/jskos-tools.svg?label=version)](https://github.com/gbv/login-client)
+[![NPM package name](https://img.shields.io/badge/npm-gbv--login--client-blue.svg)](https://www.npmjs.com/package/gbv-login-client)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
 This repository offers a JavaScript client to be used with [login-server].
@@ -16,13 +18,16 @@ This repository offers a JavaScript client to be used with [login-server].
 
 ## Install
 ```bash
-git clone https://github.com/gbv/login-client.git
-cd login-client
-npm install
+npm install gbv-login-client
 ```
+
+To include login-client via a CDN, see below.
 
 ## Build
 ```bash
+git clone https://github.com/gbv/login-client.git
+cd login-client
+npm install
 npm run build
 ```
 
