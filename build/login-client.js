@@ -124,7 +124,7 @@ class LoginClient {
     this._authenticated = false
 
     // Load login site first to make sure there is a cookie if third-party cookies are enabled
-    fetch(this._baseUrl + "login", { credentials: "include" }).then(() => fetch(this._baseUrl + "token", {
+    this._loadLoginPage().then(() => fetch(this._baseUrl + "token", {
       credentials: "include"
     })).then(response => response.json()).then(data => {
       // If there is no encrypted sessionID in the token, third-party cookies are blocked!
@@ -205,6 +205,10 @@ class LoginClient {
           this._connected = true
           this._emit(events.connect)
           break
+        case "sessionAboutToExpire":
+          // Load login page to refresh session
+          this._loadLoginPage()
+          break
         default:
           console.warn("Warning: Received unknown message of type", message.type)
       }
@@ -232,6 +236,13 @@ class LoginClient {
     for (let callback of this._listeners[null] || []) {
       callback(eventData)
     }
+  }
+
+  /**
+   * Uses fetch to load the login page to create or refresh a session cookie.
+   */
+  _loadLoginPage() {
+    return fetch(this._baseUrl + "login", { credentials: "include" })
   }
 
 }
