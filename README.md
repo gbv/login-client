@@ -136,6 +136,16 @@ npm test
 - [@stefandesu](https://github.com/stefandesu)
 - [@nichtich](https://github.com/nichtich)
 
+## Publish
+To publish a new version on npm after committing your changes, follow these steps:
+
+```bash
+npm version patch # or minor, or major
+git push --tags origin master
+```
+
+Travis will automatically deploy the new version based on the tag to npm.
+
 ## Contribute
 PRs accepted.
 
