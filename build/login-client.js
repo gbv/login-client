@@ -27,9 +27,9 @@ class LoginClient {
    * Creates a LoginClient instance.
    *
    * @param {string} url - server URL without protocol (e.g. "login.example.com")
-   * @param {object} options - with properties `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 10000), `retryMult` (default: 1.2)
+   * @param {object} options - with properties `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 10000), `retryMult` (default: 1.2), `pingInterval` (default: 2000)
    */
-  constructor(url, { ssl = true, retryMs = 1000, retryMsMax = 10000, retryMult = 1.2 } = {}) {
+  constructor(url, { ssl = true, retryMs = 1000, retryMsMax = 10000, retryMult = 1.2, pingInterval = 2000 } = {}) {
     if (!url.endsWith("/")) {
       url += "/"
     }
@@ -48,6 +48,19 @@ class LoginClient {
     this._listeners = {}
     this._ws = null
     this._currentRetryMs = retryMs
+    // ping-pong handling
+    this._lastPong = null
+    setInterval(() => {
+      if (this._ws.readyState == 1) {
+        this._send({ type: "ping" })
+        const now = new Date()
+        if (this._lastPong && now - this._lastPong > 3 * pingInterval + 500) {
+          // Force close WebSocket when there was no pong
+          this._ws.close()
+          this._emit(events.error, { error: new errors.ServerConnectionError("No reply from server, trying to reconnect.") })
+        }
+      }
+    }, pingInterval)
   }
 
   /**
@@ -142,6 +155,7 @@ class LoginClient {
   _handleOpen() {
     this._currentRetryMs = this._retryMs
     this._authenticated = false
+    this._lastPong = new Date()
 
     // Load login site first to make sure there is a cookie if third-party cookies are enabled
     this._loadLoginPage().then(() => fetch(this._baseUrl + "token", {
@@ -228,6 +242,9 @@ class LoginClient {
         case "sessionAboutToExpire":
           // Load login page to refresh session
           this._loadLoginPage()
+          break
+        case "pong":
+          this._lastPong = new Date()
           break
         default:
           console.warn("Warning: Received unknown message of type", message.type)
