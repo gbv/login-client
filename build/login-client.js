@@ -53,7 +53,7 @@ class LoginClient {
     // ping-pong handling
     this._lastPong = null
     setInterval(() => {
-      if (this._ws.readyState == 1) {
+      if (this._ws && this._ws.readyState == 1) {
         this._send({ type: "ping" })
         const now = new Date()
         if (this._lastPong && now - this._lastPong > 3 * pingInterval + 500) {
