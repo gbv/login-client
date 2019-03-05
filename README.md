@@ -121,9 +121,14 @@ client.user
 client.providers
 client.connected
 client.token
+client.decodedToken // Decoded, but not verified!
 client.about
 // Additional methods
 client.setName("New Name")
+// Static properties
+LoginClient.events // Object with available events (usage see above)
+LoginClient.errors // Object with available error classes
+LoginClient.jwtDecode // Access to jwtDecode function
 ```
 
 The [login-server] contains a more comprehensive example at its `/api` endpoint. See [its source code](https://github.com/gbv/login-server/blob/master/views/api.ejs) for details.

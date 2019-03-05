@@ -22,6 +22,8 @@ class LoginClient {
   // Static properties for events and errors
   static get events() { return events }
   static get errors() { return errors }
+  // Offer jwtDecode as static property
+  static get jwtDecode() { return jwtDecode }
 
   /**
    * Creates a LoginClient instance.
@@ -96,6 +98,9 @@ class LoginClient {
   }
   get token() {
     return this._token
+  }
+  get decodedToken() {
+    return jwtDecode(this.token)
   }
   get about() {
     return this._about
