@@ -52,7 +52,7 @@
   "dependencies": {
     "isomorphic-ws": "^4.0.1",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "node-fetch": "^2.3.0",
     "ws": "^6.1.3"
   }
