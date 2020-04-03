@@ -2904,6 +2904,7 @@ function stubFalse() {
 module.exports = stubFalse;
 
 },{}],96:[function(require,module,exports){
+(function (global){
 "use strict";
 
 // ref: https://github.com/tc39/proposal-global
@@ -2927,6 +2928,7 @@ exports.default = global.fetch.bind(global);
 exports.Headers = global.Headers;
 exports.Request = global.Request;
 exports.Response = global.Response;
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],97:[function(require,module,exports){
 /**
  * Error to be used when there is no internet connection.
