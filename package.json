@@ -43,8 +43,8 @@
     "browserify": "^16.5.1",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
-    "lint-staged": "^10.1.1",
-    "mocha": "^7.1.1",
+    "lint-staged": "^10.2.11",
+    "mocha": "^7.2.0",
     "mocha-eslint": "^6.0.0",
     "pre-commit": "^1.2.2",
     "uglify-es": "^3.3.9"
@@ -52,8 +52,8 @@
   "dependencies": {
     "isomorphic-ws": "^4.0.1",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "node-fetch": "^2.6.0",
-    "ws": "^7.2.3"
+    "ws": "^7.3.1"
   }
 }
