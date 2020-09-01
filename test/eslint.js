@@ -4,7 +4,8 @@ const lint = require("mocha-eslint")
 let paths = [
   "**/*.js",
   "!node_modules/**/*.js",
-  "!build/**/*.js"
+  "!build/**/*.js",
+  "!dist/**/*.js",
 ]
 let options = {
   contextName: "ESLint"
