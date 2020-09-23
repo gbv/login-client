@@ -143,18 +143,22 @@ npm test
 - [@nichtich](https://github.com/nichtich)
 
 ## Publish
-To publish a new version on npm after committing your changes, follow these steps:
+To publish a new version on npm after committing your changes, make sure you committed/merged all your changes to `dev` successfully and then run:
 
 ```bash
-npm version patch # or minor, or major
-git push --tags origin master
+npm run release:patch
+# or for minor release:
+# npm run release:minor
+# or for major release:
+# npm run release:major
 ```
 
-Travis will automatically deploy the new version based on the tag to npm.
+A new version will be published to npm automatically via GitHub Actions.
 
 ## Contribute
 PRs accepted.
 
+- Please implement your changes based on the current `dev` branch.
 - Please run the tests before committing.
 - Please do not skip the pre-commit hook when committing your changes.
 - If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
