@@ -31,15 +31,12 @@ npm install
 npm run build
 ```
 
-[browserify](https://github.com/browserify/browserify) is used to create builds for the browser. These builds are available in the `build/` folder and will be created on each commit. The files can be included manually or using a CDN like [jsDelivr](https://www.jsdelivr.com):
+[Rollup](https://rollupjs.org) is used to create builds for the browser. These are published to npm and can be used via a CDN like [jsDelivr](https://www.jsdelivr.com):
+
+[![](https://data.jsdelivr.com/v1/package/npm/gbv-login-client/badge?style=rounded)](https://www.jsdelivr.com/package/npm/gbv-login-client)
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/gbv/login-client/build/login-client.js"></script>
-```
-
-Or minified:
-```html
-<script src="https://cdn.jsdelivr.net/gh/gbv/login-client/build/login-client.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gbv-login-client"></script>
 ```
 
 After that, the class `LoginClient` can be used like shown below.
