@@ -41,3 +41,5 @@ client.addEventListener("_received", event => {
 
 client.connect()
 </script>
+
+<button onclick="client.connected ? client.disconnect() : client.connect()">Connect/Disconnect</button>

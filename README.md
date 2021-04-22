@@ -8,11 +8,13 @@ This repository offers a JavaScript client to be used with [login-server].
 
 [login-server]: https://github.com/gbv/login-server
 
-## Table of Contents
+## Table of Contents  <!-- omit in toc -->
 - [Install](#install)
+- [Build](#build)
 - [Usage](#usage)
 - [Test](#test)
 - [Maintainers](#maintainers)
+- [Publish](#publish)
 - [Contribute](#contribute)
 - [License](#license)
 
@@ -126,6 +128,8 @@ client.setName("New Name")
 LoginClient.events // Object with available events (usage see above)
 LoginClient.errors // Object with available error classes
 LoginClient.jwtDecode // Access to jwtDecode function
+// If you eventually want to disconnect from login server (fires disconnect event one last time):
+client.disconnect()
 ```
 
 The [login-server] contains a more comprehensive example at its `/api` endpoint. See [its source code](https://github.com/gbv/login-server/blob/master/views/api.ejs) for details.
