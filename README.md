@@ -48,7 +48,7 @@ After that, the class `LoginClient` can be used like shown below.
 // Not needed when the browser build was included.
 const LoginClient = require("gbv-login-client")
 // Second parameter is an options object with properties:
-// `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 10000), `retryMult` (default: 1.2)
+// `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 30000), `retryMult` (default: 1.2)
 let client = new LoginClient("login.example.com")
 // Add event listeners
 // Note: `event` always contains the property `event.type` which is the name of the event.
