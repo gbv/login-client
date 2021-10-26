@@ -47,19 +47,19 @@
   },
   "homepage": "https://github.com/gbv/login-client",
   "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^18.0.0",
-    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "chai": "^4.3.4",
-    "eslint": "^7.24.0",
-    "lint-staged": "^10.5.4",
-    "mocha": "^8.3.2",
+    "eslint": "^8.1.0",
+    "lint-staged": "^11.2.4",
+    "mocha": "^9.1.3",
     "mocha-eslint": "^7.0.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^2.45.2",
-    "rollup-plugin-license": "^2.3.0",
+    "rollup": "^2.58.3",
+    "rollup-plugin-license": "^2.6.0",
     "uglify-es": "^3.3.9"
   },
   "dependencies": {
@@ -67,6 +67,6 @@
     "isomorphic-ws": "^4.0.1",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
-    "ws": "^7.4.4"
+    "ws": "^7.5.5"
   }
 }
