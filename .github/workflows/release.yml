@@ -9,12 +9,12 @@ on:
 
 jobs:
   npm:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
-        node-version: 14.x
+        node-version: 16.x
         registry-url: https://registry.npmjs.org/
     - run: npm install
     - run: npm run build
@@ -22,7 +22,7 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   github:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - run: npm pack
