@@ -1,16 +1,15 @@
 // Import internal dependencies
-const events = require("../util/events")
-const errors = require("../util/errors")
-const fetch = require("../util/fetch")
+import events from "./utils/events.js"
+import * as errors from "./utils/errors.js"
+import { fetch } from "./utils/fetch.js"
+
 
 // Import lodash methods (only import methods that are used to minimize size)
-const _ = {
-  isEqual: require("lodash/isEqual")
-}
-// Import other external dependencies
-const WebSocket = require("isomorphic-ws")
-const { "default": jwtDecode } = require("jwt-decode")
+import isEqual from "lodash/isEqual.js"
 
+// Import other external dependencies
+import WebSocket from "isomorphic-ws"
+import jwtDecode from "jwt-decode"
 
 /**
  *
@@ -259,19 +258,19 @@ class LoginClient {
           this._handleOpen()
           break
         case "providers":
-          if (!_.isEqual(this._providers, message.data.providers)) {
+          if (!isEqual(this._providers, message.data.providers)) {
             this._providers = message.data.providers
             this._emit(events.providers, { providers: this._providers })
           }
           break
         case "about":
-          if (!_.isEqual(this._about, message.data)) {
+          if (!isEqual(this._about, message.data)) {
             this._about = message.data
             this._emit(events.about, this._about)
           }
           break
         case "token":
-          if (!_.isEqual(this._token, message.data.token)) {
+          if (!isEqual(this._token, message.data.token)) {
             this._token = message.data.token
             this._emit(events.token, { token: this._token, expiresIn: message.data.expiresIn })
           }
@@ -342,4 +341,8 @@ class LoginClient {
 }
 LoginClient.LoginClient = LoginClient
 
-module.exports = LoginClient
+export {
+  LoginClient,
+  errors,
+  events,
+}

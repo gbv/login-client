@@ -1,5 +1,5 @@
-const expect = require("chai").expect
-const LoginClient = require("../lib/login-client")
+import { expect } from "chai"
+import { LoginClient } from "../src/index.js"
 let client = new LoginClient("login.example.com")
 
 describe("Connect", () => {

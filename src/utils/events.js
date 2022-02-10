@@ -1,4 +1,4 @@
-const events = {
+export default {
   connect: "connect",
   disconnect: "disconnect",
   login: "login",
@@ -9,10 +9,8 @@ const events = {
   token: "token",
   about: "about",
   _sent: "_sent",
-  _received: "_received"
+  _received: "_received",
+  isEvent(eventName) {
+    return Object.values(this).includes(eventName)
+  },
 }
-const isEvent = (eventName) => {
-  return Object.values(events).includes(eventName)
-}
-
-module.exports = Object.assign({ isEvent }, events)

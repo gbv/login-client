@@ -1,7 +1,8 @@
 Please look at the console.
-<script src="dist/login-client.js"></script>
+<script src="dist/gbv-login-client.js"></script>
 <script>
-let client = new LoginClient("localhost:3004", { ssl: false })
+const { LoginClient } = GLC
+const client = new LoginClient("localhost:3004", { ssl: false })
 
 client.addEventListener("connect", event => {
   console.log("connect fired")
