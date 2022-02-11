@@ -153,6 +153,13 @@ const { LoginClient } = require("gbv-login-client")
 ```
 
 ```js
+// ES6
+// Previously: import LoginClient from "gbv-login-client"
+// Now:
+import { LoginClient } from "gbv-login-client"
+```
+
+```js
 // Browser
 // Previously the class was globally available under `LoginClient`.
 // Now the module is available under `GLC` with `LoginClient` as one of its members. To easily make previous code compatible:
