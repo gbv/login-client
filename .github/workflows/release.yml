@@ -16,20 +16,27 @@ jobs:
       with:
         node-version: 16.x
         registry-url: https://registry.npmjs.org/
-    - run: npm install
-    - run: npm run build
-    - run: npm publish --access=public
+    - name: Install and build
+      run: |
+        npm ci
+        npm run build
+    - name: Publish to npm
+      run: npm publish --access=public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   github:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    - run: npm pack
-    - name: set release name, artifact, and message
+    - name: Install, build, and pack
       run: |
+        npm ci
+        npm run build
+        npm pack
+    - run: |
         echo "ARTIFACT_NAME=$(ls gbv-login-client-*.tgz)" >> $GITHUB_ENV
-    - id: create_release
+    - name: Create GitHub release
+      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,7 +46,8 @@ jobs:
         body: TODO
         draft: true
         prerelease: false
-    - uses: actions/upload-release-asset@v1
+    - name: Upload asset to release
+      uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
