@@ -1,42 +1,42 @@
 Please look at the console.
 <script src="dist/gbv-login-client.js"></script>
 <script>
-const { LoginClient } = GLC
+const { LoginClient, events } = GLC
 const client = new LoginClient("localhost:3004", { ssl: false })
 
-client.addEventListener("connect", event => {
+client.addEventListener(events.connect, event => {
   console.log("connect fired")
 })
-client.addEventListener("disconnect", event => {
+client.addEventListener(events.disconnect, event => {
   console.log("disconnect fired")
 })
-client.addEventListener("login", event => {
+client.addEventListener(events.login, event => {
   console.log("login fired", event.user)
 })
-client.addEventListener("logout", event => {
+client.addEventListener(events.logout, event => {
   console.log("logout fired")
 })
-client.addEventListener("update", event => {
+client.addEventListener(events.update, event => {
   console.log("update fired", event.user)
 })
-client.addEventListener("error", error => {
+client.addEventListener(events.error, error => {
   console.log("error fired", error)
 })
-client.addEventListener("providers", event => {
+client.addEventListener(events.providers, event => {
   console.log("providers fired", event.providers)
 })
-client.addEventListener("about", event => {
+client.addEventListener(events.about, event => {
   console.log("about fired", event)
 })
-client.addEventListener("token", event => {
+client.addEventListener(events.token, event => {
   console.log("token fired", event.token)
 })
 // (normally not used in production)
-client.addEventListener("_sent", event => {
+client.addEventListener(events._sent, event => {
   console.log("_sent fired", event.message)
 })
 // (normally not used in production)
-client.addEventListener("_received", event => {
+client.addEventListener(events._received, event => {
   console.log("_received fired", event.message)
 })
 
