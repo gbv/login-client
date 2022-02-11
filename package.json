@@ -10,8 +10,7 @@
   "browserslist": "defaults and not ie<=11 and supports es6",
   "type": "module",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "test": "mocha --exit --timeout 10000 --slow 2000",
