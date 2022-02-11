@@ -1,6 +1,6 @@
 {
   "name": "gbv-login-client",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "A client for gbv/login-server.",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
