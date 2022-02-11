@@ -12,7 +12,7 @@ This repository offers a JavaScript client to be used with [login-server].
 - [Install](#install)
 - [Build](#build)
 - [Usage](#usage)
-  - [v1 Compatibility](#v1-compatibility)
+  - [v0 Compatibility](#v0-compatibility)
 - [Test](#test)
 - [Maintainers](#maintainers)
 - [Publish](#publish)
@@ -141,8 +141,8 @@ client.disconnect()
 
 The [login-server] contains a more comprehensive example at its `/api` endpoint. See [its source code](https://github.com/gbv/login-server/blob/master/views/api.ejs) for details.
 
-### v1 Compatibility
-gbv-login-client v2 changed how it is exported and therefore it needs to be included differently.
+### v0 Compatibility
+gbv-login-client v1 changed how it is exported and therefore it needs to be included differently.
 
 ```js
 // CommonJS
