@@ -335,7 +335,7 @@ class LoginClient {
    * Uses fetch to load the login page to create or refresh a session cookie.
    */
   _loadLoginPage() {
-    return fetch(this._baseUrl + "login", { credentials: "include" })
+    return fetch(this._baseUrl + "login", { credentials: "include", redirect: "manual" })
   }
 
 }
