@@ -39,10 +39,10 @@ npm run build
 [![](https://data.jsdelivr.com/v1/package/npm/gbv-login-client/badge?style=rounded)](https://www.jsdelivr.com/package/npm/gbv-login-client)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gbv-login-client@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/gbv-login-client@1/dist/gbv-login-client.js"></script>
 ```
 
-Note: Always specify at least the major version number to avoid breaking your application.
+Note: Always specify at least the major version number to avoid breaking your application. Also, it is recommended to use the full path in case you need to load the source maps for debugging.
 
 After that, the class `LoginClient` can be used like shown below. The lists of events and error types are also exported.
 
