@@ -51,11 +51,11 @@
   "homepage": "https://github.com/gbv/login-client",
   "devDependencies": {
     "chai": "^4.3.6",
-    "esbuild": "^0.14.36",
+    "esbuild": "~0.14.43",
     "esbuild-plugin-ifdef": "^1.0.1",
-    "eslint": "^8.13.0",
+    "eslint": "^8.17.0",
     "license-checker": "^25.0.1",
-    "lint-staged": "^12.3.7",
+    "lint-staged": "^12.5.0",
     "mocha": "^9.2.2",
     "mocha-eslint": "^7.0.0",
     "pre-commit": "^1.2.2"
@@ -65,6 +65,6 @@
     "isomorphic-ws": "^4.0.1",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
-    "ws": "^8.5.0"
+    "ws": "^8.8.0"
   }
 }
