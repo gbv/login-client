@@ -12,6 +12,7 @@ This repository offers a JavaScript client to be used with [login-server].
 - [Install](#install)
 - [Build](#build)
 - [Usage](#usage)
+  - [Cross-domain usage](#cross-domain-usage)
   - [v0 Compatibility](#v0-compatibility)
 - [Test](#test)
 - [Maintainers](#maintainers)
@@ -47,6 +48,7 @@ Note: Always specify at least the major version number to avoid breaking your ap
 After that, the class `LoginClient` can be used like shown below. The lists of events and error types are also exported.
 
 ## Usage
+
 ```javascript
 // CJS
 const { LoginClient, events, errors } = require("gbv-login-client")
@@ -140,6 +142,16 @@ client.disconnect()
 ```
 
 The [login-server] contains a more comprehensive example at its `/api` endpoint. See [its source code](https://github.com/gbv/login-server/blob/master/views/api.ejs) for details.
+
+### Cross-domain usage
+Access via login-client to a login server at another domain must be enabled by
+both server and client. The login-server must explicitly allow domains via its
+setting `ALLOWED_ORIGINS`. Access from the client may still be restricted
+because most web browsers block cross-domain cookies by default as tracking
+protection. In this case login-server emits a `ThirdPartyCookiesBlockedError`
+event. Applications should then show an appropriate message telling users how
+to add an exception in privacy settings of their browser to allow third-party
+cookies (or disable enhanced tracking protection) for the application.
 
 ### v0 Compatibility
 gbv-login-client v1 changed how it is exported and therefore it needs to be included differently.
