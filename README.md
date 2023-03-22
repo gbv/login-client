@@ -45,9 +45,16 @@ npm run build
 
 Note: Always specify at least the major version number to avoid breaking your application. Also, it is recommended to use the full path in case you need to load the source maps for debugging.
 
-After that, the class `LoginClient` can be used like shown below. The lists of events and error types are also exported.
-
 ## Usage
+
+An instance of class `LoginClient` provides methods to listen for events such
+as login and logout, as soon as login client has been connected to login
+server. Login is initiated by following a link to
+[login endpoint of login server](https://github.com/gbv/login-server#get-login).
+
+The lists of events and error types are also exported. See below for
+usage examples and [login-client-vue](https://github.com/gbv/login-client-vue) for
+a wrapper for web applications written in Vue 3:
 
 ```javascript
 // CJS
@@ -56,9 +63,11 @@ const { LoginClient, events, errors } = require("gbv-login-client")
 import { LoginClient, events, errors } from "gbv-login-client"
 // Browser
 const { LoginClient, events, errors } = GLC
+
 // Second parameter is an options object with properties:
 // `ssl` (default: true), `retryMs` (default: 1000), `retryMsMax` (default: 30000), `retryMult` (default: 1.2), `pingInterval` (default: 10000)
 let client = new LoginClient("login.example.com")
+
 // Add event listeners
 // Note: `event` always contains the property `event.type` which is the name of the event.
 client.addEventListener(events.connect, event => {
@@ -121,8 +130,10 @@ client.addEventListener(null, event => {
       // ...
   }
 })
-// Connect
+
+// Connect to login server
 client.connect()
+
 // Access properties
 client.loggedIn
 client.user
@@ -131,12 +142,15 @@ client.connected
 client.token
 client.decodedToken // Decoded, but not verified!
 client.about
-// Additional methods
+
+// Change the user name at login server
 client.setName("New Name")
+
 // Static properties
-LoginClient.events // Object with available events (usage see above)
-LoginClient.errors // Object with available error classes
+LoginClient.events    // Object with available events (usage see above)
+LoginClient.errors    // Object with available error classes
 LoginClient.jwtDecode // Access to jwtDecode function
+
 // If you eventually want to disconnect from login server (fires disconnect event one last time):
 client.disconnect()
 ```
