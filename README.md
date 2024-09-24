@@ -13,7 +13,6 @@ This repository offers a JavaScript client to be used with [login-server].
 - [Build](#build)
 - [Usage](#usage)
   - [Cross-domain usage](#cross-domain-usage)
-  - [v0 Compatibility](#v0-compatibility)
 - [Test](#test)
 - [Maintainers](#maintainers)
 - [Publish](#publish)
@@ -25,7 +24,7 @@ This repository offers a JavaScript client to be used with [login-server].
 npm install gbv-login-client
 ```
 
-To include login-client via a CDN, see below.
+login-client v2 requires Node.js 18 or later. To include login-client via a CDN, see below.
 
 ## Build
 ```bash
@@ -40,7 +39,7 @@ npm run build
 [![](https://data.jsdelivr.com/v1/package/npm/gbv-login-client/badge?style=rounded)](https://www.jsdelivr.com/package/npm/gbv-login-client)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gbv-login-client@1/dist/gbv-login-client.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gbv-login-client@2/dist/gbv-login-client.js"></script>
 ```
 
 Note: Always specify at least the major version number to avoid breaking your application. Also, it is recommended to use the full path in case you need to load the source maps for debugging.
@@ -166,33 +165,6 @@ protection. In this case login-server emits a `ThirdPartyCookiesBlockedError`
 event. Applications should then show an appropriate message telling users how
 to add an exception in privacy settings of their browser to allow third-party
 cookies (or disable enhanced tracking protection) for the application.
-
-### v0 Compatibility
-gbv-login-client v1 changed how it is exported and therefore it needs to be included differently.
-
-```js
-// CommonJS
-// Previously: const LoginClient = require("gbv-login-client")
-// Now:
-const { LoginClient } = require("gbv-login-client")
-// or: const LoginClient = require("gbv-login-client").LoginClient
-```
-
-```js
-// ES6
-// Previously: import LoginClient from "gbv-login-client"
-// Now:
-import { LoginClient } from "gbv-login-client"
-```
-
-```js
-// Browser
-// Previously the class was globally available under `LoginClient`.
-// Now the module is available under `GLC` with `LoginClient` as one of its members. To easily make previous code compatible:
-const { LoginClient } = GLC
-```
-
-Note that `events` and `errors` can also be imported directly, but are still available as members of `LoginClient`.
 
 ## Test
 ```bash
