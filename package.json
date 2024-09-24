@@ -2,16 +2,19 @@
   "name": "gbv-login-client",
   "version": "1.0.3",
   "description": "A client for gbv/login-server.",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.js",
-  "jsdelivr": "dist/gbv-login-client.js",
-  "unpkg": "dist/gbv-login-client.js",
-  "sideEffects": false,
-  "browserslist": "defaults and not ie<=11 and supports es6",
+  "exports": {
+    "require": "./dist/cjs/index.cjs",
+    "import": "./dist/esm/index.js"
+  },
+  "jsdelivr": "./dist/gbv-login-client.js",
+  "unpkg": "./dist/gbv-login-client.js",
   "type": "module",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "test": "mocha --exit --timeout 10000 --slow 2000",
     "lint": "eslint",
@@ -24,23 +27,17 @@
     "release:major": "SEMVER=major npm run release"
   },
   "lint-staged": {
-    "linters": {
-      "**/*.js": [
-        "eslint --fix"
-      ],
-      "*.js": [
-        "eslint --fix"
-      ]
-    },
-    "ignore": [
-      "dist/*"
+    "**/*.js": [
+      "eslint --fix"
+    ],
+    "*.js": [
+      "eslint --fix"
     ]
   },
-  "pre-commit": {
-    "*": [
-      "lint-staged"
-    ]
-  },
+  "pre-commit": [
+    "lint-staged",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gbv/login-client.git"
