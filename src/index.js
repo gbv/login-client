@@ -9,7 +9,7 @@ import isEqual from "lodash/isEqual.js"
 
 // Import other external dependencies
 import WebSocket from "isomorphic-ws"
-import jwtDecode from "jwt-decode"
+import { jwtDecode } from "jwt-decode"
 
 /**
  *
