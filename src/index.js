@@ -17,14 +17,14 @@ import { jwtDecode } from "jwt-decode"
 class LoginClient {
   // Static properties for events and errors
   static get events() {
-    return events 
+    return events
   }
   static get errors() {
-    return errors 
+    return errors
   }
   // Offer jwtDecode as static property
   static get jwtDecode() {
-    return jwtDecode 
+    return jwtDecode
   }
 
   /**
