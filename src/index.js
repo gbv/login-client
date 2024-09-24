@@ -16,10 +16,16 @@ import jwtDecode from "jwt-decode"
  */
 class LoginClient {
   // Static properties for events and errors
-  static get events() { return events }
-  static get errors() { return errors }
+  static get events() {
+    return events 
+  }
+  static get errors() {
+    return errors 
+  }
   // Offer jwtDecode as static property
-  static get jwtDecode() { return jwtDecode }
+  static get jwtDecode() {
+    return jwtDecode 
+  }
 
   /**
    * Creates a LoginClient instance.
@@ -165,11 +171,11 @@ class LoginClient {
     }
     return fetch(this.user.uri, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       credentials: "include",
       method: "PATCH",
-      body: JSON.stringify({ name })
+      body: JSON.stringify({ name }),
     })
   }
 
@@ -202,7 +208,7 @@ class LoginClient {
 
     // Load login site first to make sure there is a cookie if third-party cookies are enabled
     this._loadLoginPage().then(() => fetch(this._baseUrl + "token", {
-      credentials: "include"
+      credentials: "include",
     })).then(response => response.json()).then(data => {
       // If there is no encrypted sessionID in the token, third-party cookies are blocked!
       const decodedToken = jwtDecode(data.token)
@@ -212,7 +218,7 @@ class LoginClient {
       if (!this._authenticated) {
         this._send({
           type: "authenticate",
-          token: data.token
+          token: data.token,
         })
         this._token = data.token
       }
