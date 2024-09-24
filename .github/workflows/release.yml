@@ -44,7 +44,7 @@ jobs:
     - name: Create GitHub release
       uses: softprops/action-gh-release@v2
       with:
-        name: login-client ${{ github.ref }}
+        name: login-client ${{ github.ref_name }}
         body: TODO
         draft: true
         prerelease: false
