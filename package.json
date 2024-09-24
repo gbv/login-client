@@ -20,7 +20,7 @@
     "lint": "eslint",
     "fix": "eslint --fix",
     "lint-staged": "lint-staged",
-    "build": "node --experimental-json-modules build.js",
+    "build": "node build.js",
     "release": "git checkout dev && git pull && npm run build && npm test && npm version $SEMVER && git push && git checkout master && git merge dev && git push --follow-tags && git checkout dev",
     "release:patch": "SEMVER=patch npm run release",
     "release:minor": "SEMVER=minor npm run release",
