@@ -14,6 +14,8 @@
   ],
   "scripts": {
     "test": "mocha --exit --timeout 10000 --slow 2000",
+    "lint": "eslint",
+    "fix": "eslint --fix",
     "lint-staged": "lint-staged",
     "build": "node --experimental-json-modules build.js",
     "release": "git checkout dev && git pull && npm run build && npm test && npm version $SEMVER && git push && git checkout master && git merge dev && git push --follow-tags && git checkout dev",
@@ -53,7 +55,8 @@
     "chai": "^4.3.7",
     "esbuild": "~0.15.18",
     "esbuild-plugin-ifdef": "^1.0.1",
-    "eslint": "^8.45.0",
+    "eslint": "~9.10",
+    "eslint-config-gbv": "~2.0",
     "license-checker": "^25.0.1",
     "lint-staged": "^13.2.3",
     "mocha": "^10.2.0",
